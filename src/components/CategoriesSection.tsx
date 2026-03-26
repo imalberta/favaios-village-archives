@@ -1,27 +1,30 @@
 import { motion } from "framer-motion";
-import { Baby, Heart, Cross } from "lucide-react";
+import { User, MapPin, FileText, Skull } from "lucide-react";
 
 const categories = [
   {
-    icon: Baby,
-    title: "Nascimentos",
+    icon: User,
+    title: "Identificação",
     description:
-      "Registos de baptismo com nomes dos pais, padrinhos, datas e localidades de nascimento.",
-    period: "1926 – 1940",
+      "Nome completo, idade, estado civil, profissão e filiação do falecido.",
   },
   {
-    icon: Heart,
-    title: "Casamentos",
+    icon: Skull,
+    title: "Causa de Morte",
     description:
-      "Uniões matrimoniais com identificação dos noivos, testemunhas e naturalidade.",
-    period: "1926 – 1940",
+      "Patologia ou circunstância do falecimento, conforme registado pelo pároco.",
   },
   {
-    icon: Cross,
-    title: "Óbitos",
+    icon: MapPin,
+    title: "Origem e Sepultura",
     description:
-      "Registos de falecimento com idade, causa de morte, estado civil e local de sepultura.",
-    period: "1926 – 1940",
+      "Naturalidade, local de residência e cemitério onde foi sepultado.",
+  },
+  {
+    icon: FileText,
+    title: "Detalhes do Registo",
+    description:
+      "Data do falecimento, data do registo, nome do pároco e testemunhas presentes.",
   },
 ];
 
@@ -37,14 +40,14 @@ const CategoriesSection = () => {
           className="text-center mb-16"
         >
           <p className="text-gold font-display text-sm tracking-[0.3em] uppercase mb-4">
-            Categorias
+            Dados Disponíveis
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Tipos de Registos
+            O que cada Registo Contém
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.title}
@@ -60,11 +63,8 @@ const CategoriesSection = () => {
               <h3 className="font-display text-xl font-semibold text-foreground mb-3">
                 {cat.title}
               </h3>
-              <p className="font-body text-muted-foreground leading-relaxed mb-4">
+              <p className="font-body text-muted-foreground leading-relaxed">
                 {cat.description}
-              </p>
-              <p className="font-display text-xs tracking-widest uppercase text-gold">
-                {cat.period}
               </p>
             </motion.div>
           ))}

@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 const stats = [
   { value: "14", label: "Anos de Registos", detail: "1926 – 1940" },
-  { value: "2.400+", label: "Nascimentos", detail: "Registos de baptismo" },
-  { value: "680+", label: "Casamentos", detail: "Uniões registadas" },
-  { value: "1.800+", label: "Óbitos", detail: "Registos de falecimento" },
+  { value: "1.800+", label: "Óbitos Registados", detail: "Falecimentos documentados" },
+  { value: "85+", label: "Causas de Morte", detail: "Diferentes patologias" },
+  { value: "12", label: "Localidades", detail: "Favaios e arredores" },
 ];
 
 const StatsSection = () => {
@@ -22,7 +22,7 @@ const StatsSection = () => {
             Os Números
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Uma Aldeia em Registos
+            Uma Aldeia em Memória
           </h2>
         </motion.div>
 
