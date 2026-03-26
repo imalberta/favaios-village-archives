@@ -22,7 +22,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-gold font-display text-sm tracking-[0.3em] uppercase mb-6"
         >
-          Arquivo Paroquial · 1926–1940
+          Registos de Óbitos · 1926–1940
         </motion.p>
 
         <motion.h1
@@ -31,7 +31,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.4 }}
           className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-primary-foreground leading-tight mb-6"
         >
-          Manuscritos
+          Os Falecidos
           <br />
           <span className="italic font-semibold">de Favaios</span>
         </motion.h1>
@@ -42,8 +42,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="font-body text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10"
         >
-          Preservando a memória de uma aldeia do Douro através dos registos
-          paroquiais — nascimentos, casamentos e óbitos entre 1926 e 1940.
+          Honrando a memória dos que partiram — registos de óbitos da paróquia
+          de Favaios, Alto Douro, entre 1926 e 1940.
         </motion.p>
 
         <motion.div
@@ -56,7 +56,7 @@ const HeroSection = () => {
             href="#dados"
             className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-wider uppercase rounded-sm hover:bg-wine-light transition-colors"
           >
-            Explorar Dados
+            Explorar Registos
           </a>
           <a
             href="#sobre"

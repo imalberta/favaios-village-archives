@@ -15,7 +15,7 @@ const AboutSection = () => {
             <div className="relative">
               <img
                 src={manuscriptImg}
-                alt="Manuscrito paroquial antigo"
+                alt="Manuscrito paroquial de registo de óbitos"
                 className="w-full rounded-sm shadow-2xl"
                 loading="lazy"
                 width={800}
@@ -35,25 +35,25 @@ const AboutSection = () => {
               Sobre o Projeto
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Preservar a Memória <br />
-              <span className="italic">de uma Comunidade</span>
+              Honrar os que <br />
+              <span className="italic">já Partiram</span>
             </h2>
             <div className="space-y-4 font-body text-muted-foreground leading-relaxed">
               <p>
-                Os registos paroquiais de Favaios, aldeia vinhateira do Alto
-                Douro, constituem uma fonte inestimável para o estudo da
-                demografia, genealogia e história social da região.
+                Os registos de óbitos da paróquia de Favaios, aldeia vinhateira
+                do Alto Douro, constituem um testemunho silencioso das vidas que
+                moldaram esta comunidade.
               </p>
               <p>
                 Este projeto digitaliza e organiza os dados contidos nos livros
-                de nascimentos, casamentos e óbitos da paróquia, abrangendo
-                o período de 1926 a 1940 — uma era de profundas transformações
-                em Portugal.
+                de óbitos da paróquia, abrangendo o período de 1926 a 1940 —
+                uma era marcada por epidemias, pobreza rural e profundas
+                transformações sociais em Portugal.
               </p>
               <p>
-                Cada registo conta uma história: famílias que se formaram,
-                crianças que nasceram, vidas que se extinguiram. Juntos,
-                revelam o retrato de uma comunidade viva.
+                Cada registo preserva um nome, uma idade, uma causa de morte —
+                fragmentos de vidas que merecem ser lembradas. Juntos, revelam
+                o retrato de uma comunidade e das suas perdas.
               </p>
             </div>
           </motion.div>
