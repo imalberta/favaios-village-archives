@@ -59,12 +59,12 @@ const HeroSection = () => {
           >
             Explorar Registos
           </Link>
-          <a
-            href="#sobre"
+          <Link
+            to="/contexto"
             className="inline-flex items-center justify-center px-8 py-3 border border-primary-foreground/40 text-primary-foreground font-display text-sm tracking-wider uppercase rounded-sm hover:bg-primary-foreground/10 transition-colors"
           >
-            Sobre o Projeto
-          </a>
+            Contexto Histórico
+          </Link>
         </motion.div>
       </div>
 
