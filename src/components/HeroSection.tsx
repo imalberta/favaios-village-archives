@@ -51,7 +51,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center"
+          className="grid grid-cols-2 gap-4 max-w-lg mx-auto"
         >
           <Link
             to="/registos"
