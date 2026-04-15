@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import heroImg from "@/assets/favaios-hero.jpg";
 
 const HeroSection = () => {
@@ -52,12 +53,12 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <a
-            href="#dados"
+          <Link
+            to="/registos"
             className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-display text-sm tracking-wider uppercase rounded-sm hover:bg-wine-light transition-colors"
           >
             Explorar Registos
-          </a>
+          </Link>
           <a
             href="#sobre"
             className="inline-flex items-center justify-center px-8 py-3 border border-primary-foreground/40 text-primary-foreground font-display text-sm tracking-wider uppercase rounded-sm hover:bg-primary-foreground/10 transition-colors"
