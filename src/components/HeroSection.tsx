@@ -51,7 +51,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center"
         >
           <Link
             to="/registos"
@@ -64,6 +64,18 @@ const HeroSection = () => {
             className="inline-flex items-center justify-center px-8 py-3 border border-primary-foreground/40 text-primary-foreground font-display text-sm tracking-wider uppercase rounded-sm hover:bg-primary-foreground/10 transition-colors"
           >
             Contexto Histórico
+          </Link>
+          <Link
+            to="/linha-do-tempo"
+            className="inline-flex items-center justify-center px-8 py-3 border border-primary-foreground/40 text-primary-foreground font-display text-sm tracking-wider uppercase rounded-sm hover:bg-primary-foreground/10 transition-colors"
+          >
+            Linha do Tempo
+          </Link>
+          <Link
+            to="/sobre"
+            className="inline-flex items-center justify-center px-8 py-3 border border-primary-foreground/40 text-primary-foreground font-display text-sm tracking-wider uppercase rounded-sm hover:bg-primary-foreground/10 transition-colors"
+          >
+            Sobre o Projeto
           </Link>
         </motion.div>
       </div>
