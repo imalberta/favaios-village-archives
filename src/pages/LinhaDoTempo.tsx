@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { useRef } from "react";
 
 const data = [
   { ano: 1926, assentos: 13 },
@@ -24,6 +25,8 @@ const maxAssentos = Math.max(...data.map((d) => d.assentos));
 const totalAssentos = data.reduce((sum, d) => sum + d.assentos, 0);
 
 const LinhaDoTempo = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
@@ -65,66 +68,76 @@ const LinhaDoTempo = () => {
         </motion.p>
       </section>
 
-      {/* Timeline */}
-      <section className="max-w-5xl mx-auto px-6 pb-20">
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-border" />
+      {/* Horizontal Timeline */}
+      <section className="pb-20">
+        <div
+          ref={scrollRef}
+          className="overflow-x-auto px-6 pb-4 scrollbar-thin"
+        >
+          <div className="relative min-w-max flex flex-col items-start mx-auto" style={{ width: "fit-content", padding: "0 2rem" }}>
+            {/* Bar chart area */}
+            <div className="flex items-end gap-2 md:gap-4 mb-3" style={{ height: "200px" }}>
+              {data.map((item, i) => {
+                const barHeight = Math.round((item.assentos / maxAssentos) * 180);
+                return (
+                  <motion.div
+                    key={item.ano}
+                    initial={{ height: 0, opacity: 0 }}
+                    whileInView={{ height: barHeight, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.05 }}
+                    className="relative group flex flex-col items-center justify-end"
+                    style={{ width: "48px" }}
+                  >
+                    <span className="text-xs font-body font-semibold text-foreground mb-1">
+                      {item.assentos}
+                    </span>
+                    <div
+                      className="w-8 md:w-10 rounded-t-md bg-primary/80 hover:bg-primary transition-colors cursor-default"
+                      style={{ height: `${barHeight}px` }}
+                    />
+                  </motion.div>
+                );
+              })}
+            </div>
 
-          <div className="space-y-8">
-            {data.map((item, i) => {
-              const isLeft = i % 2 === 0;
-              const barWidth = Math.round((item.assentos / maxAssentos) * 100);
+            {/* Horizontal line */}
+            <div className="flex items-center" style={{ width: `${data.length * (48 + 8)}px` }}>
+              <div className="w-full h-px bg-border relative">
+                {/* Dots */}
+                {data.map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-primary border-2 border-background"
+                    style={{ left: `${i * (48 + 8) + 24}px`, transform: "translate(-50%, -50%)" }}
+                  />
+                ))}
+              </div>
+            </div>
 
-              return (
+            {/* Year labels */}
+            <div className="flex gap-2 md:gap-4 mt-3">
+              {data.map((item, i) => (
                 <motion.div
                   key={item.ano}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className={`relative flex items-center gap-4 ${
-                    isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                  } flex-row`}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="flex flex-col items-center"
+                  style={{ width: "48px" }}
                 >
-                  {/* Content card */}
-                  <div
-                    className={`ml-14 md:ml-0 md:w-[calc(50%-2rem)] ${
-                      isLeft ? "md:text-right md:pr-8" : "md:text-left md:pl-8"
-                    }`}
-                  >
-                    <div className="bg-card border border-border rounded-md p-5 inline-block w-full">
-                      <p className="font-display text-2xl font-bold text-primary">{item.ano}</p>
-                      <p className="font-body text-muted-foreground text-sm mt-1 mb-3">
-                        {item.assentos} assento{item.assentos !== 1 ? "s" : ""} de óbito
-                      </p>
-                      <div
-                        className={`h-2 rounded-full bg-primary/20 overflow-hidden ${
-                          isLeft ? "md:ml-auto" : ""
-                        }`}
-                        style={{ maxWidth: "200px" }}
-                      >
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${barWidth}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.8, delay: 0.3 + i * 0.05 }}
-                          className="h-full rounded-full bg-primary"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Dot */}
-                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary border-2 border-background z-10" />
-
-                  {/* Spacer for opposite side */}
-                  <div className="hidden md:block md:w-[calc(50%-2rem)]" />
+                  <span className="font-display text-xs md:text-sm font-bold text-foreground">
+                    {item.ano}
+                  </span>
                 </motion.div>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
+        <p className="text-center text-muted-foreground text-xs mt-4 font-body">
+          ← Deslize para ver todos os anos →
+        </p>
       </section>
     </div>
   );
